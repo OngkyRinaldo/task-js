@@ -33,12 +33,12 @@ function listData(data) {
                         <p
                             class="mb-3 font-normal text-gray-700 dark:text-gray-400"
                         >
-                           ${e.source}
+                           Source : ${e.source}
                         </p>
                         <p
                             class="mb-3 font-normal text-gray-700 dark:text-gray-400"
                         >
-                           ${e.score}
+                           Score : ${e.score}
                         </p>
                         <a
                             href=${e.url}
