@@ -5,21 +5,18 @@ const list = document.createDocumentFragment();
 async function fetchApi() {
     const api = await fetch(url);
     const { data } = await api.json();
-    console.log(data);
     listData(data);
 }
 
-function listData(data) {
+const listData = (data) => {
     data.map(function (e) {
         const text = `
-        <div
-                    class="max-w-sm md:h-72 sm:h-80 mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                >
+        <div class="max-w-sm md:h-72 sm:h-80 mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
                         <img
                             class="rounded-t-lg max-h-32 w-full object-fill"
                             src=${e.images.jpg.image_url}
-                            alt=""
+                            alt=${e.title}
                         />
                     </a>
                     <div class="p-1 text-center">
@@ -69,6 +66,6 @@ function listData(data) {
     });
 
     div.appendChild(list);
-}
+};
 
 fetchApi();
