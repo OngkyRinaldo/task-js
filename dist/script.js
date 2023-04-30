@@ -5,6 +5,7 @@ const list = document.createDocumentFragment();
 async function fetchApi() {
     const api = await fetch(url);
     const { data } = await api.json();
+    console.log(data);
     listData(data);
 }
 
@@ -12,7 +13,7 @@ function listData(data) {
     data.map(function (e) {
         const text = `
         <div
-                    class="max-w-sm h-72 sm:h-80 mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                    class="max-w-sm md:h-72 sm:h-80 mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                     <a href="#">
                         <img
@@ -21,7 +22,7 @@ function listData(data) {
                             alt=""
                         />
                     </a>
-                    <div class="p-5">
+                    <div class="p-1 text-center">
                         <a href="#">
                             <h5
                                 class="mb-2 text-xl  font-bold tracking-tight text-gray-900 dark:text-white"
@@ -34,9 +35,14 @@ function listData(data) {
                         >
                            ${e.source}
                         </p>
+                        <p
+                            class="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                        >
+                           ${e.score}
+                        </p>
                         <a
                             href=${e.url}
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            class=" inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             target="_blank">
                             Read more
                             <svg
